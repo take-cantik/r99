@@ -12,12 +12,30 @@ int divide(int x, int y) {
   }
 }
 
+// 12, キーボードから整数 x,y を入力し、 x が y で割り切れたら "割り切る"、 そうでない時、"割り切れない" をプリントする関数 void divide_p(void).
+
+/*scanf()を使ってxとyに値を代入してx % y == 0の時に割り切る、そうでない時に割り切れないを出力させる関数を作った。*/
+
+void divide_p(void) {
+  int x, y;
+
+  scanf("%i", &x);
+  scanf("%i", &y);
+
+  if (x % y == 0) {
+    printf("割り切る\n");
+  } else {
+    printf("割り切れない\n");
+  }
+}
+
 int main(void) {
   printf("No11\n");
   printf("%i\n", divide(12, 3));
   printf("%i\n", divide(2, 3));
 
   printf("No12\n");
+  divide_p();
 
   printf("No13\n");
 
