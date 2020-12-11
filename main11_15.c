@@ -29,6 +29,34 @@ void divide_p(void) {
   }
 }
 
+// 13,  整数 n の絶対値を返す関数 int abs(int n).
+
+/*0より小さいときはその値のマイナスの値を返し、0以上の時にはそのまま値を返すようにする*/
+
+int abs(int n) {
+  if (n < 0) {
+    return -n;
+  } else {
+    return n;
+  }
+}
+
+// 14, 整数 n の 2 乗を戻り値とする関数 int square(int n).
+
+/*nの二乗を返すので、n * nを返す関数にする*/
+
+int square(int n) {
+  return n * n;
+}
+
+// 15, 整数 n の 3 乗を戻り値とする関数 int triple(int n).
+
+/*nの3乗を返すので、n * n * n を戻り値とした*/
+
+int triple(int n) {
+  return n * n * n;
+}
+
 int main(void) {
   printf("No11\n");
   printf("%i\n", divide(12, 3));
@@ -38,11 +66,13 @@ int main(void) {
   divide_p();
 
   printf("No13\n");
+  printf("%i\n", abs(-12));
 
   printf("No14\n");
+  printf("%i\n", square(3));
 
   printf("No15\n");
-
+  printf("%i\n", triple(2));
 
   return 0;
 }
