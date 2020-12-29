@@ -49,6 +49,18 @@ void divisors_p(int n) {
 // 29, 
 
 /**/
+int sum_of_divisors(int n) {
+  int i;
+  int sum = 0;
+
+  for (i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      sum += i;
+    }
+  }
+
+  return sum;
+}
 
 // 30,
 
@@ -65,6 +77,7 @@ int main(void) {
   divisors_p(1024);
 
   printf("No29\n");
+  printf("%i\n", sum_of_divisors(12));
 
   printf("No30\n");
 
