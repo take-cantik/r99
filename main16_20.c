@@ -40,11 +40,7 @@ int max2(int x, int y) {
 /*if文を使って、xの方が大きい場合にはxを、それ以外の場合はyを出力させる*/
 
 void max_p(int x, int y) {
-  if (x > y) {
-    printf("%i\n", x);
-  } else {
-    printf("%i\n", y);
-  }
+  printf("%i\n", max2(x, y));
 }
 
 // 20, 整数三つを引数にとり、もっとも大きい整数を戻り値とする関数 int max3(int x, int y, int z).
