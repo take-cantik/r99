@@ -37,7 +37,7 @@ int max2(int x, int y) {
 
 // 19, 整数 x, y を引数にとり、大きい方の整数をプリントする関数 void max_p(int x, int y).
 
-/*if文を使って、xの方が大きい場合にはxを、それ以外の場合はyを出力させる*/
+/*max2を出力させた。*/
 
 void max_p(int x, int y) {
   printf("%i\n", max2(x, y));
