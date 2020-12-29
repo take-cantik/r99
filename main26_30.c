@@ -46,7 +46,7 @@ void divisors_p(int n) {
   }
 }
 
-// 29, 
+// 29, 整数一つを引数とし、その約数の合計を戻り値とする関数 int sum_of_divisors(int n).
 
 /**/
 int sum_of_divisors(int n) {
@@ -62,9 +62,35 @@ int sum_of_divisors(int n) {
   return sum;
 }
 
-// 30,
+// 30, n 以下の素数(nは整数)は何個あるかを戻り値とする関数 int primes(int n). primes(10000) の戻り値はおそらく 1229。
 
-/**/
+/*まずはis_prime()関数を作って、そこでは引数numが素数なら1, 違うなら0を返す関数であり、
+primes()関数で、は2からnまでの整数をis_prime関数に通して、1ならcountに1足して、最後にcountを返す。*/
+
+int is_prime(int num) {
+  int i;
+
+  for (i = 2; i < num; i++) {
+    if (num % i == 0) {
+      return 0;
+    }
+  }
+
+  return 1;
+}
+
+int primes(int n) {
+  int i;
+  int count = 0;
+
+  for (i = 2; i <= n; i++) {
+    if (is_prime(i)) {
+      count++;
+    }
+  }
+
+  return count;
+}
 
 int main(void) {
   printf("No26\n");
@@ -80,6 +106,7 @@ int main(void) {
   printf("%i\n", sum_of_divisors(12));
 
   printf("No30\n");
+  printf("%i\n", primes(10));
 
   return 0;
 }
