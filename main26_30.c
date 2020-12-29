@@ -17,9 +17,21 @@ int sum_of_digits(int n) {
   return sum;
 }
 
-// 27, 
+// 27, 整数 n を引数とし、それが 3 の倍数だったら 1、 5 の倍数だったら 2、 3 の倍数でもあり、かつ、5 の倍数でもあったら 3、 いずれでもなかったら 0 を返す関数 int fz(int n).
 
-/**/
+/*条件が厳しい方から、つまり15の倍数の判定からif文を分けた。*/
+
+int fz(int n) {
+  if (n % 15 == 0) {
+    return 3;
+  } else if (n % 3 == 0) {
+    return 1;
+  } else if (n % 5 == 0) {
+    return 2;
+  } else {
+    return 0;
+  }
+}
 
 // 28, 
 
@@ -38,6 +50,7 @@ int main(void) {
   printf("%i\n", sum_of_digits(12345));
 
   printf("No27\n");
+  printf("%i\n", fz(30));
 
   printf("No28\n");
 
