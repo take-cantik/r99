@@ -33,9 +33,18 @@ int fz(int n) {
   }
 }
 
-// 28, 
+// 28, 整数一つを引数とし、その約数を全てプリントする関数 void divisors_p(int n).
 
-/**/
+/*for文でiを1からnまで回し、nをiで割ったあまりが0となったものを出力する。*/
+
+void divisors_p(int n) {
+  int i;
+  for (i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      printf("%i\n", i);
+    }
+  }
+}
 
 // 29, 
 
@@ -53,6 +62,7 @@ int main(void) {
   printf("%i\n", fz(30));
 
   printf("No28\n");
+  divisors_p(1024);
 
   printf("No29\n");
 
