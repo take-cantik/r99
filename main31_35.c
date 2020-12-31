@@ -63,7 +63,9 @@ int is_prime(int n) {
 
 int is_square(int n) {
   int i;
-  for (i = 1; i * i < n; i++) { }
+  for (i = 1; i * i < n; i++) {
+    ;
+  }
   return i * i == n;
 }
 
@@ -73,7 +75,9 @@ int is_square(int n) {
 
 int is_cubic(int n) {
   int i;
-  for (i = 1; i * i * i < n; i++) { }
+  for (i = 1; i * i * i < n; i++) {
+    ;
+  }
   return i * i * i == n;
 }
 
