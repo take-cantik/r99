@@ -56,9 +56,16 @@ int is_prime(int n) {
 
   return 1;
 }
-// 33, 
 
-/**/
+// 33, 整数 n が平方数であるかどうかを判定する関数 int is_square(int n). 237169 は平方数である。
+
+/*for文で1からi*i < nまで回すことによって、抜けた後のiの二乗とnが等しければ平方数となる。*/
+
+int is_square(int n) {
+  int i;
+  for (i = 1; i * i < n; i++) { }
+  return i * i == n;
+}
 
 // 34, 
 
@@ -76,6 +83,7 @@ int main(void) {
   printf("%i\n", is_prime(2147483549));
 
   printf("No33\n");
+  printf("%i\n", is_square(237169));
 
   printf("No34\n");
 
