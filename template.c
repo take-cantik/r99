@@ -30,7 +30,6 @@ int main(void) {
   printf("No\n");
 
   printf("No\n");
-
   
   return 0;
 }
