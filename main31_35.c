@@ -67,9 +67,15 @@ int is_square(int n) {
   return i * i == n;
 }
 
-// 34, 
+// 34, 整数 n が立方数であるかどうかを判定する関数 int is_cubic(int n). 9663597 は立方数である。
 
-/**/
+/*前問と同様にして求めた。*/
+
+int is_cubic(int n) {
+  int i;
+  for (i = 1; i * i * i < n; i++) { }
+  return i * i * i == n;
+}
 
 // 35, 
 
@@ -86,6 +92,7 @@ int main(void) {
   printf("%i\n", is_square(237169));
 
   printf("No34\n");
+  printf("%i\n", is_cubic(9663597));
 
   printf("No35\n");
 
