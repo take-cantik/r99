@@ -77,9 +77,19 @@ int is_cubic(int n) {
   return i * i * i == n;
 }
 
-// 35, 
+// 35, 整数 n が 二つの整数の2乗の和として表されるかどうかを判定する関数 int is_squeare_sum(int n). is_square_sum(30505) は 1 を返す。 30505 = 123^2+124^2.
 
-/**/
+/*for文でiを1から回していき、n - (i * i)がis_squareなら正しくなる*/
+
+int is_square_sum(int n) {
+  int i;
+  for (i = 1; i * i < n; i++) {
+    if (is_square(n - (i * i))) {
+      return 1;
+    }
+  }
+  return 0;
+}
 
 int main(void) {
   printf("No31\n");
@@ -95,7 +105,7 @@ int main(void) {
   printf("%i\n", is_cubic(9663597));
 
   printf("No35\n");
-
+  printf("%i\n", is_square_sum(30505));
   
   return 0;
 }
