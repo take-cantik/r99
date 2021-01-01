@@ -21,9 +21,19 @@ int is_perfect(int n) {
   return sum_of_divisors(n) == 2 * n;
 }
 
-// 37, 
+// 37, 西暦 year を引数にとり昭和、平成、令和の和暦をプリントする関数 void j_era(int year). j_era(2020)は "令和2年" をプリントする。
 
-/**/
+/*if文でyearが◯以上としているので、令和からかいた*/
+
+void j_era(int year) {
+  if (year >= 2019) {
+    printf("令和%i年\n", year - 2018);
+  } else if (year >= 1989) {
+    printf("平成%i年\n", year - 1988);
+  } else if (year >= 1926) {
+    printf("昭和%i年\n", year - 1925);
+  }
+}
 
 // 38, 
 
@@ -42,6 +52,7 @@ int main(void) {
   printf("%i\n", is_perfect(496));
 
   printf("No37\n");
+  j_era(1926);
 
   printf("No38\n");
 
