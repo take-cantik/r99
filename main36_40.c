@@ -51,9 +51,13 @@ int leap(int year) {
   }
 }
 
-// 39, 
+// 39, hh 時 mm 分 ss 秒の hh, mm, ss を引数にとり、0 時 0 分 0 秒からの通 算秒に変換した整数を戻り値とする関数 int time_to_int(int h, int m, int s).
 
-/**/
+/*hに3600, mに60, をかけて足す*/
+
+int time_to_int(int h, int m, int s) {
+  return (h * 60 + m) * 60 + s;
+}
 
 // 40, 
 
@@ -70,6 +74,7 @@ int main(void) {
   printf("%i\n", leap(2100));
 
   printf("No39\n");
+  printf("%i\n", time_to_int(1, 4, 3));
 
   printf("No40\n");
   
