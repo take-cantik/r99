@@ -35,9 +35,21 @@ void j_era(int year) {
   }
 }
 
-// 38, 
+// 38, 西暦 year を引数にとり、閏年であれば 1、そうでなければ 0 を返す関数。 西暦が 4 で割り切れれば閏年。ただし、100 で割り切れる時は平年。 ただし、400 で割り切れる時は閏年。 int leap(int year).
 
-/**/
+/*FizzBuzzと同じように、条件が強い方から場合分けした*/
+
+int leap(int year) {
+  if (year % 400 == 0) {
+    return 1;
+  } else if (year % 100 == 0) {
+    return 0;
+  } else if (year % 4 == 0) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
 
 // 39, 
 
@@ -55,6 +67,7 @@ int main(void) {
   j_era(1926);
 
   printf("No38\n");
+  printf("%i\n", leap(2100));
 
   printf("No39\n");
 
