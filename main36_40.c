@@ -59,9 +59,13 @@ int time_to_int(int h, int m, int s) {
   return (h * 60 + m) * 60 + s;
 }
 
-// 40, 
+// 40, 時刻 h1:m1:s1 と 時刻 h2:m2:s2 の間の秒数を整数で返す関数 int sec_between(int h1, int m1, int s1, int h2, int m2, int s2).
 
-/**/
+/*time_to_int関数を使って、その差を戻り値とする。*/
+
+int sec_between(int h1, int m1, int s1, int h2, int m2, int s2) {
+  return time_to_int(h1, m1, s1) - time_to_int(h2, m2, s2);
+}
 
 int main(void) {
   printf("No36\n");
@@ -77,6 +81,7 @@ int main(void) {
   printf("%i\n", time_to_int(1, 4, 3));
 
   printf("No40\n");
+  printf("%i\n", sec_between(1, 7, 3, 1, 3, 4));
   
   return 0;
 }
