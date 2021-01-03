@@ -113,114 +113,115 @@ srandom(getpid( ));
 
 55 上の randf( ) を応用し、円周率 pi を求める関数 float pi(int n). 2次元乱数 [x,y]、 (0.0 ≤ x < 1.0, 0.0 ≤ y < 1.0) を n = 1,000 個発生し、 x^2 + y^2 ≤ 1 となるものを数える。多分それは 785 近辺の数になる。 とすると円周率 pi は (785/1000)*4 と推定できる。 n を増やすと pi の精度は上がるはず。
 
-56(25) 重要: repl.it で回答するため、以下、61 番までは integers.txt を numbers.txt に読み替えた上、week-10 の授業資料を参照してください。 ファイル integers.txt をダウンロードし、適当な場所にセーブしてください。以下、61番まではこのファイルを使います。 ファイル "integers.txt" には一行にひとつ、 整数が書き込まれている。 そのファイルの1行目の数を返す関数 int head(void).
+56 重要: repl.it で回答するため、以下、61 番までは integers.txt を numbers.txt に読み替えた上、week-10 の授業資料を参照してください。 ファイル integers.txt をダウンロードし、適当な場所にセーブしてください。以下、61番まではこのファイルを使います。 ファイル "integers.txt" には一行にひとつ、 整数が書き込まれている。 そのファイルの1行目の数を返す関数 int head(void).
 
-57(17) ファイル "integers.txt" が何行あるかを返す関数 int lines(void).
+57 ファイル "integers.txt" が何行あるかを返す関数 int lines(void).
 
-58(17) ファイル "integers.txt" の n 行目の数字を返す関数 int nth(int n).
+58 ファイル "integers.txt" の n 行目の数字を返す関数 int nth(int n).
 
-59(20) ファイル "integers.txt" の最初の十行に含まれる整数の総和を返す関数 int sum10(void).
+59 ファイル "integers.txt" の最初の十行に含まれる整数の総和を返す関数 int sum10(void).
 
-60(17) ファイル "integers.txt" の最初の n 行に含まれる整数の総和を返す関数 int sum_n(int n).
+60 ファイル "integers.txt" の最初の n 行に含まれる整数の総和を返す関数 int sum_n(int n).
 
-61(15) ファイル "integers.txt"の最後の n 行に含まれる整数の総和を返す関数 int sum_tail(int n).
+61 ファイル "integers.txt"の最後の n 行に含まれる整数の総和を返す関数 int sum_tail(int n).
 
-62(10) ファイル名を文字列 fname として引数にとり、そのファイルの中身を 表示する関数 void cat(char *fname)
+62 ファイル名を文字列 fname として引数にとり、そのファイルの中身を 表示する関数 void cat(char *fname)
 
-63(9) ファイル名を文字列 fname として引数にとり、そのファイルの中身を 行番号つきで表示する関数 void n_cat(char *fname)
+63 ファイル名を文字列 fname として引数にとり、そのファイルの中身を 行番号つきで表示する関数 void n_cat(char *fname)
 
-64(27) n 以上 m 未満の奇数の和を求める関数 int sum_odds(int n, int m). sum_odds(100, 200) は 7500 を返す。
+64 n 以上 m 未満の奇数の和を求める関数 int sum_odds(int n, int m). sum_odds(100, 200) は 7500 を返す。
 
-65(25) n よりも大きい完全数はなにか？を求める関数 int next_perfect(int n). next_perfect(28) はきっと 496 だ。 これまでにR99で作成した関数を駆使しなさい。
+65 n よりも大きい完全数はなにか？を求める関数 int next_perfect(int n). next_perfect(28) はきっと 496 だ。 これまでにR99で作成した関数を駆使しなさい。
 
-66(24) n 未満の素数の和を求める関数 int sum_primes_under(int n). sum_primes_under(1000) は 76127 のはず。
+66 n 未満の素数の和を求める関数 int sum_primes_under(int n). sum_primes_under(1000) は 76127 のはず。
 
-67(23) 関数 int factorial(int n) を定義せよ。 factorial(5) は 5! の値を戻り値とする。 一般に factoria(n) = n * factorial(n-1). 0! は 1 だよ。
+67 関数 int factorial(int n) を定義せよ。 factorial(5) は 5! の値を戻り値とする。 一般に factoria(n) = n * factorial(n-1). 0! は 1 だよ。
 
-68(18) 0!, 1!, 2! ... を次々に計算していき、 n! > m となる最小の n を求める関数 int factorial_over(int m). factorial_over(2000000) の戻り値は
+68 0!, 1!, 2! ... を次々に計算していき、 n! > m となる最小の n を求める関数 int factorial_over(int m). factorial_over(2000000) の戻り値は
 
-69(16) 0!, 1!, 2! ... を次々に計算していき、 n! < 0 となる最小の n を求める関数 int factorial_overflow(void). C 言語ではこういうことが起こる。int が有限だからね。
+69 0!, 1!, 2! ... を次々に計算していき、 n! < 0 となる最小の n を求める関数 int factorial_overflow(void). C 言語ではこういうことが起こる。int が有限だからね。
 
-70(17) フィボナッチ数列を計算する関数 int fibo(int n) を定義せよ。 fibo(0) = 0, fibo(1) = 1, fibo(2) = 1 で、 一般にfibo(n) = fibo(n-1) + fibo(n-2) だ。
+70 フィボナッチ数列を計算する関数 int fibo(int n) を定義せよ。 fibo(0) = 0, fibo(1) = 1, fibo(2) = 1 で、 一般にfibo(n) = fibo(n-1) + fibo(n-2) だ。
 
-71(14) fibo(n) が最初に n を超える n はいくらかを求める関数 int fibo_over(n). fibo_over(20000) の戻り値はきっと 23 だ。
+71 fibo(n) が最初に n を超える n はいくらかを求める関数 int fibo_over(n). fibo_over(20000) の戻り値はきっと 23 だ。
 
-72(11) n 以上 m 未満となるフィボナッチ数の総和を返す関数 int sum_of_fibo_between(int n, int m). sum_of_fibo_between(10000,100000) の戻り値は 178700 よりちょっと大きい。
+72 n 以上 m 未満となるフィボナッチ数の総和を返す関数 int sum_of_fibo_between(int n, int m). sum_of_fibo_between(10000,100000) の戻り値は 178700 よりちょっと大きい。
 
-73(7) サイズ n の整数配列 a[ ] に 0~99 の乱数をセットする関数 void init_randoms_99(int a[ ] , int n).
+73 サイズ n の整数配列 a[ ] に 0~99 の乱数をセットする関数 void init_randoms_99(int a[ ] , int n).
 
-74(5) 上で作った乱数配列 a[ ] 中にみつからない 0~99 の数をプリントする関数 void find_not(int a[ ], int n).
+74 上で作った乱数配列 a[ ] 中にみつからない 0~99 の数をプリントする関数 void find_not(int a[ ], int n).
 
-75(4) 上で作った乱数配列 a[ ] ( サイズは n) 中に一番たくさん重複して現れる数を返す関数 int find_max_dupli(int a[ ], int n).
+75 上で作った乱数配列 a[ ] ( サイズは n) 中に一番たくさん重複して現れる数を返す関数 int find_max_dupli(int a[ ], int n).
 
-76(3) 上で作った乱数配列 a[ ] を要素の大きさ順に並べ替え、b[ ] にセットする関数 void sort(int a[ ], int b[ ], int n).
+76 上で作った乱数配列 a[ ] を要素の大きさ順に並べ替え、b[ ] にセットする関数 void sort(int a[ ], int b[ ], int n).
 
-77(3) 上で並べ替えた配列 b[ ] が正しく要素順になっているかを確認する関数 int is_sorted(int b[ ], int n).
+77 上で並べ替えた配列 b[ ] が正しく要素順になっているかを確認する関数 int is_sorted(int b[ ], int n).
 
-78(20) 文字列 s が空文字列 "" かどうかを判定する関数 int is_empty(char* s).
+78 文字列 s が空文字列 "" かどうかを判定する関数 int is_empty(char* s).
 
-79(21) 文字列 s の長さを返す関数 int str_len(char* s).
+79 文字列 s の長さを返す関数 int str_len(char* s).
 
-80(15) 文字列 s に含まれる文字 c の数を返す関数 int count_chars(char* s, char c).
+80 文字列 s に含まれる文字 c の数を返す関数 int count_chars(char* s, char c).
 
-81(15) 文字列 s1 と文字列 s2 が等しいかどうかを判定する関数 int str_eql(char* s1, char* s2).
+81 文字列 s1 と文字列 s2 が等しいかどうかを判定する関数 int str_eql(char* s1, char* s2).
 
-82(11) 二つの文字列 s1, s2 の先頭の n 文字が等しいかどうかを判定する関数 int str_eql_n(char* s1, char*s2, int n).
+82 二つの文字列 s1, s2 の先頭の n 文字が等しいかどうかを判定する関数 int str_eql_n(char* s1, char*s2, int n).
 
-83(11) 文字列 s1 を文字列 s2 にコピーする関数 void str_copy(char* s1, char* s2). s2 は s1 をコピーするに十分な長さがあると仮定してよい。 以下同様。 str_copy(s1,s2) の実行後、str_sql(s1, s2) が真になること。
+83 文字列 s1 を文字列 s2 にコピーする関数 void str_copy(char* s1, char* s2). s2 は s1 をコピーするに十分な長さがあると仮定してよい。 以下同様。 str_copy(s1,s2) の実行後、str_sql(s1, s2) が真になること。
 
-84(7) 文字列 s1 の後ろに文字列 s2 を連結する関数 char* str_append(char* s1, char* s2). str_append("abc", "def") の実行後、str_eql(s1, "abcdef")は真になる。
+84 文字列 s1 の後ろに文字列 s2 を連結する関数 char* str_append(char* s1, char* s2). str_append("abc", "def") の実行後、str_eql(s1, "abcdef")は真になる。
 
-85(6) 文字列 s1 の n 文字目からの m 文字を s2 の先頭にコピーする関数 char * str_take(char* s1, int n, int m, char* s2). 戻り値は s2. str_take("0123456", 1, 3, s2) の呼び出しのあと、s2 は "123" となる。
+85 文字列 s1 の n 文字目からの m 文字を s2 の先頭にコピーする関数 char * str_take(char* s1, int n, int m, char* s2). 戻り値は s2. str_take("0123456", 1, 3, s2) の呼び出しのあと、s2 は "123" となる。
 
-86(4) 文字列 s1 中に文字列 s2 が出現するかどうかを判定する関数 int str_search(char* s1, char* s2). s2 が s1 の何文字目から出現しているかを返す。見つからなかった時は -1 を返せ。 戻り値 が 0 の時は「s1 の先頭に s2 は見つかる」の意味になる。
+86 文字列 s1 中に文字列 s2 が出現するかどうかを判定する関数 int str_search(char* s1, char* s2). s2 が s1 の何文字目から出現しているかを返す。見つからなかった時は -1 を返せ。 戻り値 が 0 の時は「s1 の先頭に s2 は見つかる」の意味になる。
 
-87(4) 文字列 s1 の n 文字目からの m 文字を削除する char* str_remove(char* s1, int n, int m). 戻り値は s1. s1="0123456789" として、 str_remove(s1, 5,3) の後、s1 は "0123489" になる。
+87 文字列 s1 の n 文字目からの m 文字を削除する char* str_remove(char* s1, int n, int m). 戻り値は s1. s1="0123456789" として、 str_remove(s1, 5,3) の後、s1 は "0123489" になる。
 
-88(4) 文字列 s1 中に文字列 s2 が見つかる場合、s1 から s2 を削除し、s1 ポインタを返す。 char* str_remove_str(char s1[ ], char s2[ ]). 見つからない時？なにも削除しないよ。
+88 文字列 s1 中に文字列 s2 が見つかる場合、s1 から s2 を削除し、s1 ポインタを返す。 char* str_remove_str(char s1[ ], char s2[ ]). 見つからない時？なにも削除しないよ。
 
-89(4) 文字列 s1 の n 文字目に文字列 s2 を挿入する char* str_insert(char* s1, int n, char* s2). 戻り値は挿入後の文字列（ポインタ）。 printf("%s\n", str_insert("012345", 3, "abc")) は 0123abc45 を印字する。
+89 文字列 s1 の n 文字目に文字列 s2 を挿入する char* str_insert(char* s1, int n, char* s2). 戻り値は挿入後の文字列（ポインタ）。 printf("%s\n", str_insert("012345", 3, "abc")) は 0123abc45 を印字する。
 
-90(1) 文字列 s1 中に現れる文字列 s2 を文字列 s3 で置き換える char* str_subst(char* s1, char* s2, char* s3). 戻り値は置き換え後の文字列（ポインタ）。
+90 文字列 s1 中に現れる文字列 s2 を文字列 s3 で置き換える char* str_subst(char* s1, char* s2, char* s3). 戻り値は置き換え後の文字列（ポインタ）。
 
-91(2) 文字列 s を全て大文字にして返す char *toUpper(char* s). printf("%s\n", toUpper("I am small letters, ain't I?")) は I AM SMALL LETTERS, AIN'T I? を印字する。
+91 文字列 s を全て大文字にして返す char *toUpper(char* s). printf("%s\n", toUpper("I am small letters, ain't I?")) は I AM SMALL LETTERS, AIN'T I? を印字する。
 
-92(0) 文字列 s1 を整数に変換して返す関数 int str_to_int(char* s1). str_to_int("314")の戻り値は 214 になる。
+92 文字列 s1 を整数に変換して返す関数 int str_to_int(char* s1). str_to_int("314")の戻り値は 214 になる。
 
-93(0) 整数 n を文字列 s に変換する関数 void int_to_str(int n, char* s). int_to_str(1023, s) の呼び出しによって 文字列 "1023" が s にコピーされる。
+93 整数 n を文字列 s に変換する関数 void int_to_str(int n, char* s). int_to_str(1023, s) の呼び出しによって 文字列 "1023" が s にコピーされる。
 
-94(1) 文字列 *s を逆にした文字列を返す関数 char* str_reverse(char* s). printf("%s\n", str_reverse("abcdef")) がプリントするのは "fedcba\n"
+94 文字列 *s を逆にした文字列を返す関数 char* str_reverse(char* s). printf("%s\n", str_reverse("abcdef")) がプリントするのは "fedcba\n"
 
-95(0) 文字列 *s1 が日本語文字列の場合、s1 を逆順にした文字列を返す関数 char *jstr_reverse(char* s1)). printf("%s\n", jstr_reverse("おはようございます。")) がプリントするのは "。すまいざごうよはお\n"
+95 文字列 *s1 が日本語文字列の場合、s1 を逆順にした文字列を返す関数 char *jstr_reverse(char* s1)). printf("%s\n", jstr_reverse("おはようございます。")) がプリントするのは "。すまいざごうよはお\n"
 
-96(0) 文字列一つを引数にとり、 それが "コロナ"だったら "no thanks."、 "ビール" だったら "乾杯！"、 "単位" だったら "よかったね。"、 それ以外だったら "なんくるないさ" を表示する関数 void greet(char* s).
+96 文字列一つを引数にとり、 それが "コロナ"だったら "no thanks."、 "ビール" だったら "乾杯！"、 "単位" だったら "よかったね。"、 それ以外だったら "なんくるないさ" を表示する関数 void greet(char* s).
 
-97(4) 1000000 未満の整数で、平方数かつ立方数でもある最大の数を探す関数。 int square_cubic(int n). square_cubic(1000000) の戻り値はきっと、531***.
+97 1000000 未満の整数で、平方数かつ立方数でもある最大の数を探す関数。 int square_cubic(int n). square_cubic(1000000) の戻り値はきっと、531***.
 
-98(0) int * shuffle(int n) を定義せよ。戻り値は 0~n-1 の n 個の正整数が重複なく順番バラバラに入った配列。完成するとビンゴゲームに使えるぞ。関数名を bingo( ) にしようか。
+98 int * shuffle(int n) を定義せよ。戻り値は 0~n-1 の n 個の正整数が重複なく順番バラバラに入った配列。完成するとビンゴゲームに使えるぞ。関数名を bingo( ) にしようか。
 
-99(1) 10 までの整数をその約数の数で分類すると、 1-(1), 2-(2,3,5,7),3-(4,9), 4-(6,8,10) となって グループ 2 が最もたくさんのメンバーを持ち、 そのメンバーの和は 17 になる。 同様に 1000までの整数を分類し、もっともたくさんのメンバーを持つグループを特定し、総和せよ。多分その数は 143*** くらいになる。
+99 10 までの整数をその約数の数で分類すると、 1-(1), 2-(2,3,5,7),3-(4,9), 4-(6,8,10) となって グループ 2 が最もたくさんのメンバーを持ち、 そのメンバーの和は 17 になる。 同様に 1000までの整数を分類し、もっともたくさんのメンバーを持つグループを特定し、総和せよ。多分その数は 143*** くらいになる。
 
-100(1) 216を超えない最大の素数は何か？ それは 65521.
+100 216を超えない最大の素数は何か？ それは 65521.
 
-101(0) 231を超えない最大の素数は何か？ それはきっと 2147483647.
+101 231を超えない最大の素数は何か？ それはきっと 2147483647.
 
-102(3) 4 番目までの素数を足すと 2 + 3 + 5 + 7 = 17. 1000 番目までの素数の和を求めなさい。 それはたぶん 3682913.
+102 4 番目までの素数を足すと 2 + 3 + 5 + 7 = 17. 1000 番目までの素数の和を求めなさい。 それはたぶん 3682913.
 
-103(0) 1000 未満の素数 p1, p2, p3 で、 p12 + p22 = p32 を満たすものはあるでしょうか？
+103 1000 未満の素数 p1, p2, p3 で、 p12 + p22 = p32 を満たすものはあるでしょうか？
 
-104(2) n を整数とする。factorial(n) + 2 が立方数となるような n を全て求めよ。
+104 n を整数とする。factorial(n) + 2 が立方数となるような n を全て求めよ。
 
-105(3) 3 で割って1余り、5 で割って2余り、7 で割って 3 余る正の整数の最小のものはなにか？ （孫子の問題）
+105 3 で割って1余り、5 で割って2余り、7 で割って 3 余る正の整数の最小のものはなにか？ （孫子の問題）
 
-106(3) 2520 は 1 から 10 の数字のすべての整数で割り切れる最小の整数である。 1 から 20 までの整数すべてで割り切れる最小の整数は何か？
+106 2520 は 1 から 10 の数字のすべての整数で割り切れる最小の整数である。 1 から 20 までの整数すべてで割り切れる最小の整数は何か？
 
-107(0) 整数 n を文字列に変換し、戻り値とする関数 char* int_to_str(int n).
+107 整数 n を文字列に変換し、戻り値とする関数 char* int_to_str(int n).
 
-108(0) 左右どちらから読んでも同じ値になる数を回文数という。 2桁の数の積で表される回文数のうち、最大のものは 9009 = 91 × 99 である。 3桁の数の積で表される回文数の最大値を求めよ。
+108 左右どちらから読んでも同じ値になる数を回文数という。 2桁の数の積で表される回文数のうち、最大のものは 9009 = 91 × 99 である。 3桁の数の積で表される回文数の最大値を求めよ。
 
-109(2) 600851475143 の素因数のうち最大のものを求めよ。
+109 600851475143 の素因数のうち最大のものを求めよ。
 
-110(3) n * m と同じ計算をする関数 int stoic_times(int n, int m) を定義せよ。 stoic_times( ) ほか、補助関数中でも * を使うのは反則とする。
+110 n * m と同じ計算をする関数 int stoic_times(int n, int m) を定義せよ。 stoic_times( ) ほか、補助関数中でも * を使うのは反則とする。
 
-111(4) ++ と -- のみを使い、x + y と同じ計算をする関数 int stoic_add(int x, int y) を定義せよ。
+111 ++ と -- のみを使い、x + y と同じ計算をする関数 int stoic_add(int x, int y) を定義せよ。
+
