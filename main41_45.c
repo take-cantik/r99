@@ -70,9 +70,18 @@ int days_between(int y1, int m1, int d1, int y2, int m2, int d2) {
 
 /**/
 
-// 44, 
+// 44, 3 桁の整数の桁を入れ替えた整数を返す関数 int rev3(int n). 例えば rev(314) の戻り値は 413 になる。310 は 13 だな。
 
-/**/
+// 百の桁と一の桁の数を取り出して、それぞれ引いて、逆に足した。
+
+int rev3(int n) {
+  int handred = n % 10;
+  int one = n / 100;
+  n -= (handred + one * 100);
+  n += (handred * 100 + one);
+
+  return n;
+}
 
 // 45, 
 
@@ -88,6 +97,7 @@ int main(void) {
   printf("No43\n");
 
   printf("No44\n");
+  printf("%i\n", rev3(150));
 
   printf("No45\n");
   
