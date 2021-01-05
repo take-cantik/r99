@@ -112,6 +112,7 @@ int main(void) {
   printf("%i\n", rev3(150));
 
   printf("No45\n");
+  printf("%i\n", how_many_rev3());
   
   return 0;
 }
