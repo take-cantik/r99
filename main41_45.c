@@ -83,9 +83,21 @@ int rev3(int n) {
   return n;
 }
 
-// 45, 
+// 45, rev3(n) が元の整数 n と等しくなる3桁の整数は何個あるかを返す関数 int how_many_rev3(void).
 
-/**/
+// 100から999まででrev3したものとする前ので等しかったらcountに1を足す。
+
+int how_many_rev3(void) {
+  int i;
+  int count = 0;
+  for (i = 100; i < 1000; i++) {
+    if (rev3(i) == i) {
+      count++;
+    }
+  }
+
+  return count;
+}
 
 int main(void) {
   printf("No41\n");
