@@ -47,6 +47,10 @@ int is_prime(int n) {
     return 0;
   }
 
+  if (n == 2) {
+    return 1;
+  }
+
   for (i = 2; i <= finish_num; i++) {
     if (n % i == 0) {
       return 0;
