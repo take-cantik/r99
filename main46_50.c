@@ -41,9 +41,17 @@ int f_to_i(float x) {
   }
 }
 
-// 49, 
+// 49, float x を小数点第 2 位で四捨五入した float を返す関数 float f_to_f1(float x). f_to_f1(3.14159265) の戻り値は 3.100000 になる。
 
-/**/
+/*
+  小数点第二位で四捨五入なので、引数の10倍をf_to_i関数に入れて、
+  その返り値をfloat型にし、10で割った数を返した。
+*/
+
+float f_to_f1(float x) {
+  int x_ten_times = f_to_i(x * 10);
+  return (float)x_ten_times / 10;
+}
 
 // 50, 
 
@@ -62,6 +70,8 @@ int main(void) {
   printf("%i\n", f_to_i(3.51));
 
   printf("No49\n");
+  printf("%lf\n", f_to_f1(1.14));
+  printf("%lf\n", f_to_f1(1.15));
 
   printf("No50\n");
   
