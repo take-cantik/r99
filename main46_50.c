@@ -10,14 +10,23 @@ int square(int n) {
 
 void squares_p(void) {
   int i;
-    for (i = 1; i <= 20; i++) {
-      printf("%i\n", square(i));
-    }
+  for (i = 1; i <= 20; i++) {
+    printf("%i\n", square(i));
+  }
 }
 
-// 47, 
+// 47, 整数 n のルートを超えない最大の整数を返す関数 int sqrt_int(int n). sqrt_int(24) の戻り値は4, sqrt_int(25)の戻り値は5 を期待している。 ヒントは前問。ライブラリ sqrt を使うことは反則とする。
 
-/**/
+// iの二乗がn以下まで回して、最後にi-1を返す。
+
+int sqrt_int(int n) {
+  int i;
+  for (i = 1; i * i <= n; i++) {
+    ;
+  }
+
+  return i - 1;
+}
 
 // 48, 
 
@@ -36,6 +45,8 @@ int main(void) {
   squares_p();
 
   printf("No47\n");
+  printf("%i\n", sqrt_int(24));
+  printf("%i\n", sqrt_int(25));
 
   printf("No48\n");
 
