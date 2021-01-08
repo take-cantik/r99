@@ -53,9 +53,26 @@ float f_to_f1(float x) {
   return (float)x_ten_times / 10;
 }
 
-// 50, 
+// 50, float x を小数点第 n+1 位で四捨五入した float を返す関数 float f_to_f(float x, int n). f_to_f(3.14159265, 4) の戻り値は 3.141600 になる。
 
-/**/
+/*
+  前問では10をかけて、最後に割ったが、その値がnによって決まるので、
+  nをもとに10^nを返す関数n_tenを作って考えた。
+*/
+
+int n_ten(int n) {
+  int ret = 1;
+  for (int i = 0; i < n; i++) {
+    ret *= 10;
+  }
+
+  return ret;
+}
+
+float f_to_f(float x, int n) {
+  int nt = n_ten(n);
+  return (float)f_to_i(x * nt) / nt; 
+}
 
 int main(void) {
   printf("No46\n");
@@ -74,6 +91,10 @@ int main(void) {
   printf("%lf\n", f_to_f1(1.15));
 
   printf("No50\n");
+  printf("%lf\n", f_to_f(1.444444, 3));
+  printf("%lf\n", f_to_f(1.555555, 3));
+  printf("%lf\n", f_to_f(1.444444, 4));
+  printf("%lf\n", f_to_f(1.555555, 5));
   
   return 0;
 }
