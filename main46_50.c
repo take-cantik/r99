@@ -28,9 +28,18 @@ int sqrt_int(int n) {
   return i - 1;
 }
 
-// 48, 
+// 48, float x を四捨五入した int を返す関数 int f_to_i(float x). ヒント: 浮動小数点数 x の整数部分は (int)x で得られる。 かっこの付け方が妙だけど、こう書く。(int)3.5 は 3 だよ。4にならない。
 
-/**/
+// xの整数部をxから引いて、0.5以上で整数部＋１、それ以外で整数部を返す。
+
+int f_to_i(float x) {
+  int x_int = (int)x;
+  if (x - x_int >= 0.5) {
+    return x_int + 1;
+  } else {
+    return x_int;
+  }
+}
 
 // 49, 
 
@@ -49,6 +58,8 @@ int main(void) {
   printf("%i\n", sqrt_int(25));
 
   printf("No48\n");
+  printf("%i\n", f_to_i(3.49));
+  printf("%i\n", f_to_i(3.51));
 
   printf("No49\n");
 
