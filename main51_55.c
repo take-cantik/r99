@@ -10,9 +10,15 @@ int my_rand(int n) {
   return random() % n;
 }
 
-// 52, 
+// 52, 0.0 ≤ r < 1.0 の浮動小数点数乱数を返す関数 float randf(void).
 
-/**/
+/*
+  my_rand関数をfloat型にして、それを10で割った数を返した。
+*/
+
+float randf(void) {
+  return (float)my_rand(10) / 10;
+}
 
 // 53, 
 
@@ -31,10 +37,13 @@ int main(void) {
   srandom(getpid( ));
   int i;
   for (i = 0; i < 10; i++) {
-      printf("%i\n", my_rand(10));
+    printf("%i\n", my_rand(10));
   }
 
   printf("No52\n");
+  for (i = 0; i < 10; i++) {
+    printf("%lf\n", randf());
+  }
 
   printf("No53\n");
 
