@@ -22,10 +22,16 @@ float randf(void) {
 
 // 53, n ≤ r < m の整数乱数を返す関数 int rand_int(int n, int m).
 
-/**/
+// my_randでn以上になったら返す。
 
 int rand_int(int n, int m) {
-  return 0;
+  int num;
+  for (;;) {
+    num = my_rand(m);
+    if (num >= n) {
+      return num;
+    }
+  }
 }
 
 // 54, 
@@ -50,6 +56,9 @@ int main(void) {
   }
 
   printf("No53\n");
+  for (i = 0; i < 10; i++) {
+    printf("%i\n", rand_int(2100000, 2140000));
+  }
 
   printf("No54\n");
 
