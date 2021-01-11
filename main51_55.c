@@ -17,12 +17,16 @@ int my_rand(int n) {
 */
 
 float randf(void) {
-  return (float)my_rand(10) / 10;
+  return (float)my_rand(1000000) / 1000000;
 }
 
-// 53, 
+// 53, n ≤ r < m の整数乱数を返す関数 int rand_int(int n, int m).
 
 /**/
+
+int rand_int(int n, int m) {
+  return 0;
+}
 
 // 54, 
 
