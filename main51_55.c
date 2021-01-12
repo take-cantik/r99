@@ -25,18 +25,19 @@ float randf(void) {
 // my_randでn以上になったら返す。
 
 int rand_int(int n, int m) {
-  int num;
-  for (;;) {
-    num = my_rand(m);
-    if (num >= n) {
-      return num;
-    }
-  }
+  return n + my_rand(m - n);
 }
 
-// 54, 
+// 54, 上の randf( ) を呼び出して、2次元乱数 [x, y] (0.0 ≤ x < 1.0, 0.0 ≤ y < 1.0) を n 個プリントする関数 void randf_p(int n).
 
-/**/
+// for文でn回randf()を呼び出した。
+
+void randf_p(int n) {
+  int i;
+  for (i = 0; i < n; i++) {
+    printf("[%lf, %lf]\n", randf(), randf());
+  }
+}
 
 // 55, 
 
@@ -61,6 +62,7 @@ int main(void) {
   }
 
   printf("No54\n");
+  randf_p(5);
 
   printf("No55\n");
 
