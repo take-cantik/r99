@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <math.h>
 
 // 51, 関数 long random(void) を呼ぶとすごく大きい正の整数乱数が返ってくる。 random( ) を利用し、0 以上 n 未満の正の整数乱数を返す関数 int my_rand(int n).
 
@@ -39,9 +40,24 @@ void randf_p(int n) {
   }
 }
 
-// 55, 
+// 55, 上の randf( ) を応用し、円周率 pi を求める関数 float pi(int n). 2次元乱数 [x,y]、 (0.0 ≤ x < 1.0, 0.0 ≤ y < 1.0) を n = 1,000 個発生し、 x^2 + y^2 ≤ 1 となるものを数える。多分それは 785 近辺の数になる。 とすると円周率 pi は (785/1000)*4 と推定できる。 n を増やすと pi の精度は上がるはず。
 
-/**/
+// x^2 + y^2 ≤ 1が成立するときに、countに1足していき、その数をnで割って4乗した数を返した
+
+float pi(int n) {
+  int i;
+  int count = 0;
+  float x, y;
+
+  for (i = 0; i < n; i++) {
+    x = randf();
+    y = randf();
+    if (x * x + y * y <= 1) {
+      count++;
+    }
+  }
+  return powf((float)count / n, 4);
+}
 
 int main(void) {
   printf("No51\n");
@@ -65,6 +81,7 @@ int main(void) {
   randf_p(5);
 
   printf("No55\n");
+  printf("%lf\n", pi(1000));
 
   return 0;
 }
