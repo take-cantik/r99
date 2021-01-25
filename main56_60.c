@@ -33,9 +33,22 @@ int lines(void) {
   return line;
 }
 
-// 58, 
+// 58, ファイル "integers.txt" の n 行目の数字を返す関数 int nth(int n).
 
-/**/
+// n回fscanfを行い、最後に入れられたものを返す。
+
+int nth(int n) {
+  FILE *fp;
+  int i, ret_num;
+
+  fp = fopen("integers.txt", "r");
+  for (i = 0; i < n; i++) {
+    fscanf(fp, "%i", &ret_num);
+  }
+  fclose(fp);
+
+  return ret_num;
+}
 
 // 59, 
 
@@ -53,6 +66,9 @@ int main(void) {
   printf("%i\n", lines());
 
   printf("No58\n");
+  printf("%i\n", nth(1));
+  printf("%i\n", nth(23455));
+  printf("%i\n", nth(34567));
 
   printf("No59\n");
 
