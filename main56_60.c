@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // 56, ファイル integers.txt をダウンロードし、適当な場所にセーブしてください。以下、61番まではこのファイルを使います。 ファイル "integers.txt" には一行にひとつ、 整数が書き込まれている。 そのファイルの1行目の数を返す関数 int head(void).
 
@@ -50,13 +51,52 @@ int nth(int n) {
   return ret_num;
 }
 
-// 59, 
+// 59, ファイル "integers.txt" の最初の十行に含まれる整数の総和を返す関数 int sum10(void).
 
-/**/
+// 10回回して、その総和を返した。
 
-// 60, 
+int sum10(void) {
+  FILE *fp;
+  int i, num;
+  int sum = 0;
 
-/**/
+  fp = fopen("integers.txt", "r");
+  for (i = 0; i < 10; i++) {
+    fscanf(fp, "%i", &num);
+    sum += num;
+  }
+  fclose(fp);
+
+  return sum;
+}
+
+// 60, ファイル "integers.txt" の最初の n 行に含まれる整数の総和を返す関数 int sum_n(int n).
+
+/* sum10の関数のfor文の回す数を引数のnとした。 */
+
+int sum_n(int n) {
+  FILE *fp;
+
+  if ((fp = fopen("integers.txt", "r")) == NULL) {
+    printf("ファイルを読み込めません。\n");
+    exit(1);
+  }
+
+  int i, num;
+  int sum = 0;
+
+  for (i = 0; i < n; i++) {
+    if (fscanf(fp, "%i", &num) == 1) {
+      sum += num;
+    } else {
+      printf("数を読み込めませんでした。\n");
+      exit(1);
+    }
+  }
+  fclose(fp);
+
+  return sum;
+}
 
 int main(void) {
   printf("No56\n");
@@ -71,8 +111,10 @@ int main(void) {
   printf("%i\n", nth(34567));
 
   printf("No59\n");
+  printf("%i\n", sum10());
 
   printf("No60\n");
+  printf("%i\n", sum_n(10));
   
   return 0;
 }
