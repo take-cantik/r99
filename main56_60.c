@@ -9,7 +9,11 @@ int head(void) {
   FILE *fp;
   int number;
 
-  fp = fopen("integers.txt", "r");
+  if ((fp = fopen("integers.txt", "r")) == NULL) {
+    printf("ファイルを読み込めません。\n");
+    exit(1);
+  }
+
   fscanf(fp, "%i", &number);
   fclose(fp);
 
@@ -25,7 +29,11 @@ int lines(void) {
   char line_num[100];
   int line = 0;
 
-  fp = fopen("integers.txt", "r");
+  if ((fp = fopen("integers.txt", "r")) == NULL) {
+    printf("ファイルを読み込めません。\n");
+    exit(1);
+  }
+
   for (;fgets(line_num, 100, fp) != NULL;) {
     line++;
   }
@@ -42,9 +50,15 @@ int nth(int n) {
   FILE *fp;
   int i, ret_num;
 
-  fp = fopen("integers.txt", "r");
+  if ((fp = fopen("integers.txt", "r")) == NULL) {
+    printf("ファイルを読み込めません。\n");
+    exit(1);
+  }
+
   for (i = 0; i < n; i++) {
-    fscanf(fp, "%i", &ret_num);
+    if (fscanf(fp, "%i", &ret_num) != 1) {
+      exit(1);
+    }
   }
   fclose(fp);
 
@@ -60,10 +74,18 @@ int sum10(void) {
   int i, num;
   int sum = 0;
 
-  fp = fopen("integers.txt", "r");
+  if ((fp = fopen("integers.txt", "r")) == NULL) {
+    printf("ファイルを読み込めません。\n");
+    exit(1);
+  }
+
   for (i = 0; i < 10; i++) {
-    fscanf(fp, "%i", &num);
-    sum += num;
+    if (fscanf(fp, "%i", &num) == 1) {
+      sum += num;
+    } else {
+      printf("数を読み込めませんでした。\n");
+      exit(1);
+    }
   }
   fclose(fp);
 
