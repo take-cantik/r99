@@ -71,9 +71,26 @@ void cat(char *fname) {
   fclose(fp);
 }
 
-// 63, 
+// 63, ファイル名を文字列 fname として引数にとり、そのファイルの中身を 行番号つきで表示する関数 void n_cat(char *fname)
 
-/**/
+/* 行番号の変数line_numを作成し、これを1から順に増やしていき、その行を出力する前にline_numを出力させた。 */
+
+void n_cat(char *fname) {
+  FILE *fp;
+  char line[100];
+
+  if ((fp = fopen(fname, "r")) == NULL) {
+    printf("ファイルを読み込めません。\n");
+    exit(1);
+  }
+
+  int line_num;
+  for (line_num = 1; fgets(line, 100, fp) != NULL; line_num++) {
+    printf("%i %s", line_num, line);
+  }
+
+  fclose(fp);
+}
 
 // 64, 
 
@@ -91,6 +108,7 @@ int main(void) {
   cat("test.txt");
 
   printf("No63\n");
+  n_cat("test.txt");
 
   printf("No64\n");
 
