@@ -92,9 +92,22 @@ void n_cat(char *fname) {
   fclose(fp);
 }
 
-// 64, 
+// 64, n 以上 m 未満の奇数の和を求める関数 int sum_odds(int n, int m). sum_odds(100, 200) は 7500 を返す。
 
-/**/
+// nからmまで、2で割ったあまりが1ならその数を足して行った。
+
+int sum_odds(int n, int m) {
+  int sum = 0;
+  int i;
+
+  for (i = n; i < m; i++) {
+    if (i % 2 == 1) {
+      sum += i;
+    }
+  }
+
+  return sum;
+}
 
 // 65, 
 
@@ -111,6 +124,7 @@ int main(void) {
   n_cat("test.txt");
 
   printf("No64\n");
+  printf("%i\n", sum_odds(100, 200));
 
   printf("No65\n");
   
