@@ -51,9 +51,25 @@ int sum_tail(int n) {
   return sum_n(lines()) - sum_n(lines() - n);
 }
 
-// 62, 
+// 62, ファイル名を文字列 fname として引数にとり、そのファイルの中身を 表示する関数 void cat(char *fname)
 
-/**/
+// fgetsの返り値がNULLになるまで、その行を出力した。
+
+void cat(char *fname) {
+  FILE *fp;
+  char line[100];
+
+  if ((fp = fopen(fname, "r")) == NULL) {
+    printf("ファイルを読み込めません。\n");
+    exit(1);
+  }
+
+  for (;fgets(line, 100, fp) != NULL;) {
+    printf("%s", line);
+  }
+
+  fclose(fp);
+}
 
 // 63, 
 
@@ -72,6 +88,7 @@ int main(void) {
   printf("%i\n", sum_tail(1));
 
   printf("No62\n");
+  cat("test.txt");
 
   printf("No63\n");
 
