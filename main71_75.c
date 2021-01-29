@@ -23,9 +23,20 @@ int fibo_over(int n) {
   }
 }
 
-// 72, 
+// 72, n 以上 m 未満となるフィボナッチ数の総和を返す関数 int sum_of_fibo_between(int n, int m). sum_of_fibo_between(10000,100000) の戻り値は 178700 よりちょっと大きい。
 
-/**/
+// nからm未満までfiboに入れていき、sumに足し合わせた。
+
+int sum_of_fibo_between(int n, int m) {
+  int i;
+  int sum = 0;
+
+  for (i = n; i < m; i++) {
+    sum += fibo(i);
+  }
+
+  return sum;
+}
 
 // 73, 
 
@@ -44,6 +55,7 @@ int main(void) {
   printf("%i\n", fibo_over(20000));
 
   printf("No72\n");
+  printf("%i\n", sum_of_fibo_between(1, 10));
 
   printf("No73\n");
 
