@@ -51,9 +51,19 @@ int factorial(int n) {
   }
 }
 
-// 68, 
+// 68, 0!, 1!, 2! ... を次々に計算していき、 n! > m となる最小の n を求める関数 int factorial_over(int m). factorial_over(2000000) の戻り値は
 
-/**/
+// iを回していき、factorial(i) > m となったときにそのiを返した。
+
+int factorial_over(int m) {
+  int i;
+
+  for (i = 0; ; i++) {
+    if (factorial(i) > m) {
+      return i;
+    }
+  }
+}
 
 // 69, 
 
@@ -81,6 +91,7 @@ int main(void) {
   printf("%i\n", factorial(5));
 
   printf("No68\n");
+  printf("%i\n", factorial_over(1000));
 
   printf("No69\n");
 
