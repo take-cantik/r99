@@ -1,18 +1,53 @@
 #include <stdio.h>
 
-//
+// 66, n 未満の素数の和を求める関数 int sum_primes_under(int n). sum_primes_under(1000) は 76127 のはず。
+
+// n未満までiをforで回し、もしis_primeだったらsumに加算する。
+
+int is_prime(int n) {
+  int i;
+  int finish_num = n;
+
+  if (n == 0 || n == 1) {
+    return 0;
+  }
+
+  if (n == 2) {
+    return 1;
+  }
+
+  for (i = 2; i <= finish_num; i++) {
+    if (n % i == 0) {
+      return 0;
+    }
+    finish_num = n / i;
+  }
+
+  return 1;
+}
+
+int sum_primes_under(int n) {
+  int i;
+  int sum = 0;
+
+  for (i = 0; i < n; i++) {
+    if (is_prime(i)) {
+      sum += i;
+    }
+  }
+
+  return sum;
+}
+
+// 67, 
 
 /**/
 
-//
+// 68, 
 
 /**/
 
-//
-
-/**/
-
-//
+// 69, 
 
 /**/
 
@@ -32,6 +67,7 @@ int fibo(int n) {
 
 int main(void) {
   printf("No66\n");
+  printf("%i\n", sum_primes_under(12));
 
   printf("No67\n");
 
