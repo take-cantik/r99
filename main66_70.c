@@ -39,9 +39,17 @@ int sum_primes_under(int n) {
   return sum;
 }
 
-// 67, 
+// 67, 関数 int factorial(int n) を定義せよ。 factorial(5) は 5! の値を戻り値とする。 一般に factoria(n) = n * factorial(n-1). 0! は 1 だよ。
 
-/**/
+// 再帰関数でデフォルトで1の時1を返し、その他の時にn * factorial(n-1)を返した。
+
+int factorial(int n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
 
 // 68, 
 
@@ -70,6 +78,7 @@ int main(void) {
   printf("%i\n", sum_primes_under(12));
 
   printf("No67\n");
+  printf("%i\n", factorial(5));
 
   printf("No68\n");
 
