@@ -44,7 +44,7 @@ int sum_primes_under(int n) {
 // 再帰関数でデフォルトで1の時1を返し、その他の時にn * factorial(n-1)を返した。
 
 int factorial(int n) {
-  if (n == 1) {
+  if (n == 0) {
     return 1;
   } else {
     return n * factorial(n - 1);
