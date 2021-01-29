@@ -65,9 +65,19 @@ int factorial_over(int m) {
   }
 }
 
-// 69, 
+// 69, 0!, 1!, 2! ... を次々に計算していき、 n! < 0 となる最小の n を求める関数 int factorial_overflow(void). C 言語ではこういうことが起こる。int が有限だからね。
 
-/**/
+// factorial(i) > 0になった時に返した。
+
+int factorial_overflow(void) {
+  int i;
+
+  for (i = 1; ; i++) {
+    if (factorial(i) < 0) {
+      return i;
+    }
+  }
+}
 
 // 70, フィボナッチ数列を計算する関数 int fibo(int n) を定義せよ。 fibo(0) = 0, fibo(1) = 1, fibo(2) = 1 で、 一般にfibo(n) = fibo(n-1) + fibo(n-2) だ。
 
@@ -94,6 +104,7 @@ int main(void) {
   printf("%i\n", factorial_over(1000));
 
   printf("No69\n");
+  printf("%i\n", factorial_overflow());
 
   printf("No70\n");
   printf("%i\n", fibo(7));
