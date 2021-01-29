@@ -109,9 +109,35 @@ int sum_odds(int n, int m) {
   return sum;
 }
 
-// 65, 
+// 65, n よりも大きい完全数はなにか？を求める関数 int next_perfect(int n). next_perfect(28) はきっと 496 だ。 これまでにR99で作成した関数を駆使しなさい。
 
-/**/
+// iをn + 1から順に回していき、それが完全数ならその時のiを返す。
+
+int sum_of_divisors(int n) {
+  int i;
+  int sum = 0;
+
+  for (i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      sum += i;
+    }
+  }
+
+  return sum;
+}
+
+int is_perfect(int n) {
+  return sum_of_divisors(n) == 2 * n;
+}
+
+int next_perfect(int n) {
+  int i;
+  for (i = n + 1;; i++) {
+    if (is_perfect(i)) {
+      return i;
+    }
+  }
+}
 
 int main(void) {
   printf("No61\n");
@@ -127,6 +153,9 @@ int main(void) {
   printf("%i\n", sum_odds(100, 200));
 
   printf("No65\n");
+  printf("%i\n", next_perfect(496));
+  printf("%i\n", next_perfect(0));
+  printf("%i\n", next_perfect(9));
   
   return 0;
 }
