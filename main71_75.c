@@ -81,9 +81,52 @@ void find_not(int a[], int n) {
   }
 }
 
-// 75, 
+// 75, 上で作った乱数配列 a[ ] ( サイズは n) 中に一番たくさん重複して現れる数を返す関数 int find_max_dupli(int a[ ], int n).
 
-/**/
+/*
+  まず、初期値を0とした要素数100の配列a_num[]を作る。この配列は0〜99のうちいくつ重複しているのかを格納するものである。
+  次に、for文でiを0から100まで回した。そこで、iがいくつ重複しているのかを返す関数duplicate()を実行させせ、その数をa_numのi番目の要素へ代入した。
+  そして、配列の一番大きな要素のindexを返すmax_index_of_array関数を返した。
+*/
+
+int duplicate(int a[], int n, int a_n) {
+  int i;
+  int count = 0;
+  for (i = 0; i < n; i++) {
+    if (a[i] == a_n) {
+      count++;
+    }
+  }
+  return count;
+}
+
+int max_index_of_array(int array[], int n) {
+  int i, max_index;
+  int max_num = 0;
+
+  for (i = 0; i < n; i++) {
+    if (array[i] > max_num) {
+      max_num = array[i];
+      max_index = i;
+    }
+  }
+
+  return max_index;
+}
+
+int find_max_dupli(int a[], int n) {
+  int i, duplicate_num;
+  int a_num[100] = {};
+
+  for (i = 0; i < 100; i++) {
+    duplicate_num = duplicate(a, n, i);
+    if (duplicate_num > 0) {
+      a_num[i] += duplicate_num;
+    }
+  }
+
+  return max_index_of_array(a_num, 100);
+}
 
 int main(void) {
   printf("No71\n");
@@ -105,7 +148,10 @@ int main(void) {
   find_not(ahi, 10);
 
   printf("No75\n");
-  
+  int ahiahi[700];
+  init_randoms_99(ahiahi, 700);
+  printf("%i\n", find_max_dupli(ahiahi, 700));
+
   return 0;
 }
 
