@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // 71, fibo(n) が最初に n を超える n はいくらかを求める関数 int fibo_over(n). fibo_over(20000) の戻り値はきっと 23 だ。
 
@@ -38,9 +39,21 @@ int sum_of_fibo_between(int n, int m) {
   return sum;
 }
 
-// 73, 
+// 73, サイズ n の整数配列 a[ ] に 0~99 の乱数をセットする関数 void init_randoms_99(int a[ ] , int n).
 
-/**/
+// for文でn回回して、その中でmy_rand関数を用いて、代入させた。
+
+int my_rand(int n) {
+  return random() % n;
+}
+
+void init_randoms_99(int a[], int n) {
+  int i;
+
+  for (i = 0; i < n; i++) {
+    a[i] = my_rand(100);
+  }
+}
 
 // 74, 
 
@@ -58,6 +71,13 @@ int main(void) {
   printf("%i\n", sum_of_fibo_between(1, 10));
 
   printf("No73\n");
+  int ahi[10];
+  init_randoms_99(ahi, 10);
+  int i;
+  for (i = 0; i < 10; i++) {
+    printf("%i\n", ahi[i]);
+  }
+  
 
   printf("No74\n");
 
