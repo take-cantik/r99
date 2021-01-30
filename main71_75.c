@@ -55,9 +55,31 @@ void init_randoms_99(int a[], int n) {
   }
 }
 
-// 74, 
+// 74, 上で作った乱数配列 a[ ] 中にみつからない 0~99 の数をプリントする関数 void find_not(int a[ ], int n).
 
-/**/
+/*
+  iを0から100まで回し、その中でn回a[]を回して、もしiとa[j]が等しければia_findを1にしてbeakし、
+  その後is_findが1であればcontinueし、そうでなければiを出力した。
+*/
+
+void find_not(int a[], int n) {
+  int i, j;
+  int is_find = 0;
+
+  for (i = 0; i < 100; i++) {
+    for (j = 0; j < n; j++) {
+      if (i == a[j]) {
+        is_find = 1;
+        break;
+      }
+    }
+    if (is_find == 1) {
+      is_find = 0;
+      continue;
+    }
+    printf("%i\n", i);
+  }
+}
 
 // 75, 
 
@@ -75,11 +97,12 @@ int main(void) {
   init_randoms_99(ahi, 10);
   int i;
   for (i = 0; i < 10; i++) {
-    printf("%i\n", ahi[i]);
+    printf("%i ", ahi[i]);
   }
-  
+  printf("\n");
 
   printf("No74\n");
+  find_not(ahi, 10);
 
   printf("No75\n");
   
