@@ -101,9 +101,38 @@ char *str_append(char *s1, char *s2) {
   return sp;
 }
 
-// 85, 
+// 85, 文字列 s1 の n 文字目からの m 文字を s2 の先頭にコピーする関数 char * str_take(char* s1, int n, int m, char* s2). 戻り値は s2. str_take("0123456", 1, 3, s2) の呼び出しのあと、s2 は "123" となる。 s2 にコピーを取るんじゃなくて、malloc( ) したメモリにコピーとって、malloc( ) のしたアドレスを返すバージョンにも挑戦してみよう。
 
-/**/
+/*
+  s2の先頭と入れ替えるのか、s2の先頭に加えるのかがわからなかったので、前者の方で解いた。
+  まず、str_pにmallocを使ってchar型の大きさm+str_len(s2)のメモリを確保した。
+  次に、for文でm回回してその中でstr_p[i]にs1[i + n]を代入することで、先頭にs1のn文字目からのm文字をstr_pに入れた。
+  その後、for文でiをmからs2[i]が'\0'になるまで回して、str_pにs2のm番目以降を代入して行った。
+  最後にfree()でメモリを開放してstr_pを返した。
+*/
+
+char *str_take(char *s1, int n, int m, char *s2) {
+  char *str_p = NULL;
+  str_p = (char*)malloc(sizeof(char) * (m + str_len(s2)));
+  if (str_p == NULL) {
+    perror("配列を作成できませんでした。\n");
+  }
+
+  int i;
+  for (i = 0; i < m; i++) {
+    if (str_p[i] == '\0') {
+      perror("配列の大きさを越しています。\n");
+    }
+    str_p[i] = s1[i + n];
+  }
+  for (i = m; s2[i] != '\0'; i++) {
+    str_p[i] = s2[i];
+  }
+  str_p[i] = '\0';
+
+  free(str_p);
+  return str_p;
+}
 
 int main(void) {
   printf("No81\n");
@@ -126,14 +155,25 @@ int main(void) {
   printf("No84\n");
   char s31[] = "ABC";
   char s32[] = "DEF";
-  printf("%i\n", str_eql(str_append(s31, s32), "ABCDEF"));
+  char *s3p;
+  s3p = str_append(s31, s32);
+  printf("%i\n", str_eql(s3p, "ABCDEF"));
   int i;
-  for (i = 0; str_append(s31, s32)[i] != '\0'; i++) {
-    printf("%c", str_append(s31, s32)[i]);
+  for (i = 0; s3p[i] != '\0'; i++) {
+    printf("%c", s3p[i]);
   }
   printf("\n");
 
   printf("No85\n");
+  char s41[] = "1234567890";
+  char s42[] = "abcdefg";
+  char *s_p;
+  s_p = str_take(s41, 3, 3, s42);
+  for (i = 0; s_p[i] != '\0'; i++) {
+    printf("%c", s_p[i]);
+  }
+  printf("\n");
+
 
   return 0;
 }
