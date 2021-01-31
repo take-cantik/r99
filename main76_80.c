@@ -29,9 +29,19 @@ void sort(int a[], int b[], int n) {
   }
 }
 
-// 77, 
+// 77, 上で並べ替えた配列 b[ ] が正しく要素順になっているかを確認する関数 int is_sorted(int b[ ], int n).
 
-/**/
+// for文でb[i]とb[i+1]を比べて、もしb[i]の方が大きかったら0を返し、for文を抜けたら1を返す。
+
+int is_sorted(int b[], int n) {
+  int i;
+  for (i = 0; i < n - 1; i++) {
+    if (b[i] > b[i + 1]) {
+      return 0;
+    }
+  }
+  return 1;
+}
 
 // 78, 
 
@@ -66,6 +76,7 @@ int main(void) {
   printf("%i}\n", b[9]);
 
   printf("No77\n");
+  printf("%i\n", is_sorted(b, 10));
 
   printf("No78\n");
 
