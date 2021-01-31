@@ -51,9 +51,18 @@ int is_empty(char *s) {
   return s[0] == '\0';
 }
 
-// 79, 
+// 79, 文字列 s の長さを返す関数 int str_len(char* s).
 
-/**/
+// for文でs[i]が'\0'出なくなるまで回して、最後にiを返した。
+
+int str_len(char *s) {
+  int i;
+  for (i = 0; s[i] != '\0'; i++) {
+    ;
+  }
+
+  return i;
+}
 
 // 80, 
 
@@ -87,8 +96,8 @@ int main(void) {
   char ahiahi[] = "ahiahi";
   printf("ahi: %i, ahiahi: %i\n", is_empty(ahi), is_empty(ahiahi));
 
-
   printf("No79\n");
+  printf("ahi: %i, ahiahi: %i\n", str_len(ahi), str_len(ahiahi));
 
   printf("No80\n");
   
