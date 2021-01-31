@@ -43,9 +43,13 @@ int is_sorted(int b[], int n) {
   return 1;
 }
 
-// 78, 
+// 78, 文字列 s が空文字列 "" かどうかを判定する関数 int is_empty(char* s).
 
-/**/
+// 一番最初の要素が"\0"だったら1、違ったら0を返した。
+
+int is_empty(char *s) {
+  return s[0] == '\0';
+}
 
 // 79, 
 
@@ -79,6 +83,10 @@ int main(void) {
   printf("%i\n", is_sorted(b, 10));
 
   printf("No78\n");
+  char ahi[] = "";
+  char ahiahi[] = "ahiahi";
+  printf("ahi: %i, ahiahi: %i\n", is_empty(ahi), is_empty(ahiahi));
+
 
   printf("No79\n");
 
