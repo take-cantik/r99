@@ -64,9 +64,22 @@ int str_len(char *s) {
   return i;
 }
 
-// 80, 
+// 80, 文字列 s に含まれる文字 c の数を返す関数 int count_chars(char* s, char c).
 
-/**/
+// sを'\0'になるまで回して、その中でs[i]とcが同じならcntを増やしていき、cntを返した。
+
+int count_chars(char *s, char c) {
+  int i;
+  int cnt = 0;
+
+  for (i = 0; s[i] != '\0'; i++) {
+    if (s[i] == c) {
+      cnt++;
+    }
+  }
+
+  return cnt;
+}
 
 int main(void) {
   printf("No76\n");
@@ -100,6 +113,10 @@ int main(void) {
   printf("ahi: %i, ahiahi: %i\n", str_len(ahi), str_len(ahiahi));
 
   printf("No80\n");
+  printf("ahi, a: %i\n", count_chars(ahi, 'a'));
+  printf("ahiahi, a: %i\n", count_chars(ahiahi, 'a'));
+  char words[] = "mikitakeru";
+  printf("mikitakeru, i: %i\n", count_chars(words, 'i'));
   
   return 0;
 }
