@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // 86, 文字列 s1 中に文字列 s2 が出現するかどうかを判定する関数 int str_search(char* s1, char* s2). s2 が s1 の何文字目から出現しているかを返す。見つからなかった時は -1 を返せ。 戻り値 が 0 の時は「s1 の先頭に s2 は見つかる」の意味になる。
 
@@ -48,13 +49,41 @@ int str_search(char *s1, char *s2) {
   return -1;
 }
 
-// 87, 
+// 87, 文字列 s1 の n 文字目からの m 文字を削除する char* str_remove(char* s1, int n, int m). 戻り値は s1. s1="0123456789" として、 str_remove(s1, 5,3) の後、s1 は "0123489" になる。 s1 を書き換えない、安全なバージョンにも挑戦しよう。
+
+/*
+  まずmallocでs1の長さ分のメモリを確保する。
+  次に、n未満の要素を代入する。
+  その後、s1のn+m番目から代入していく。
+*/
+
+char *str_remove(char *s1, int n, int m) {
+  int s1_len = str_len(s1);
+  char *s_p = NULL;
+  s_p = (char*)malloc(sizeof(char) * s1_len);
+
+  int i;
+  for (i = 0; i < n; i++) {
+    s_p[i] = s1[i];
+  }
+  for (i = n; s1[i + m] != '\0'; i++) {
+    s_p[i] = s1[i + m];
+  }
+  s_p[i] = '\0';
+
+  free(s_p);
+  return s_p;
+}
+
+// 88, 文字列 s1 中に文字列 s2 が見つかる場合、s1 から s2 を削除し、s1 ポインタを返す。 char* str_remove_str(char s1[ ], char s2[ ]). 見つからない時？なにも削除しないよ。
 
 /**/
 
-// 88, 
+char *str_remove_str(char s1[], char s2[]) {
+  if (str_search()) {
 
-/**/
+  }
+}
 
 // 89, 
 
@@ -75,6 +104,14 @@ int main(void) {
   printf("%i\n", str_search(s04, s01));
 
   printf("No87\n");
+  char s11[] = "0123456789";
+  char *s12_p;
+  s12_p = str_remove(s11, 5, 3);
+  int i;
+  for (i = 0; s12_p[i] != '\0'; i++) {
+    printf("%c", s12_p[i]);
+  }
+  printf("\n");
 
   printf("No88\n");
 
