@@ -94,13 +94,62 @@ char *str_remove_str(char s1[], char s2[]) {
   return s1;
 }
 
-// 89, 
+// 89, 文字列 s1 の n 文字目に文字列 s2 を挿入する char* str_insert(char* s1, int n, char* s2). 戻り値は挿入後の文字列（ポインタ）。 printf("%s\n", str_insert("012345", 3, "abc")) は 0123abc45 を印字する。
 
-/**/
+/*
+  まず、s1とs2の長さの和のメモリを確保した。
+  次に、n未満までstr_pに格納し、その後、s2をその後に格納した。
+  最後に、残りのs1をs2をだいにゅうした後に格納した。
+*/
 
-// 90, 
+char *str_insert(char *s1, int n, char *s2) {
+  int s_len = str_len(s1) + str_len(s2);
+  char *str_p = NULL;
+  str_p = (char*)malloc(sizeof(char) * s_len);
 
-/**/
+  int i;
+  for (i = 0; i < n; i++) {
+    str_p[i] = s1[i];
+  }
+  for (i = 0; s2[i] != '\0'; i++) {
+    str_p[i + n] = s2[i];
+  }
+  for (i = n; s1[i] != '\0'; i++) {
+    str_p[i + str_len(s2)] = s1[i];
+  }
+  str_p[i + str_len(s2)] = '\0';
+
+  free(str_p);
+  return str_p;
+}
+
+// 90, 文字列 s1 中に現れる文字列 s2 を文字列 s3 で置き換える char* str_subst(char* s1, char* s2, char* s3). 戻り値は置き換え後の文字列（ポインタ）。
+
+void str_copy(char *s1, char *s2) {
+  int i;
+  for (i = 0; s1[i] != '\0'; i++) {
+    s2[i] = s1[i];
+  }
+  s2[i] = '\0';
+}
+
+/*
+  まず、s1とs3の配列の大きさの和分のメモリの確保をする。
+  次に、s2をs1のコピーから消して、そこにs3を挿入した。
+*/
+
+char *str_subst(char *s1, char *s2, char *s3) {
+  int s_len = str_len(s1) + str_len(s3);
+  char *strp = NULL;
+  strp = (char*)malloc(sizeof(char) * s_len);
+
+  str_copy(s1, strp);
+  int s_index = str_search(strp, s2);
+  strp = str_remove_str(strp, s2);
+  strp = str_insert(strp, s_index, s3);
+
+  return strp;
+}
 
 int main(void) {
   printf("No86\n");
@@ -133,8 +182,24 @@ int main(void) {
   printf("\n");
 
   printf("No89\n");
+  char s32[] = "0123456789";
+  char *s31_p;
+  s31_p = str_insert(s32, 3, s22);
+  for (i = 0; s31_p[i] != '\0'; i++) {
+    printf("%c", s31_p[i]);
+  }
+  printf("\n");
+
 
   printf("No90\n");
+  char s41[] = "456";
+  char s42[] = "abc";
+  char *s43_p;
+  s43_p = str_subst(s32, s41, s42);
+  for (i = 0; s43_p[i] != '\0'; i++) {
+    printf("%c", s43_p[i]);
+  }
+  printf("\n");
   
   return 0;
 }
