@@ -77,12 +77,21 @@ char *str_remove(char *s1, int n, int m) {
 
 // 88, 文字列 s1 中に文字列 s2 が見つかる場合、s1 から s2 を削除し、s1 ポインタを返す。 char* str_remove_str(char s1[ ], char s2[ ]). 見つからない時？なにも削除しないよ。
 
-/**/
+
+// もし、s1にs2が含まれていれば、s1[str_index]に、s1のs2文をプラスしたものをs1の続きに代入させる。
+
 
 char *str_remove_str(char s1[], char s2[]) {
-  if (str_search()) {
-
+  int str_index = str_search(s1, s2);
+  if (str_index != -1) {
+    int i;
+    for (i = str_index; s1[i] != '\0'; i++) {
+      s1[i] = s1[i + str_len(s2) - 1];
+    }
+    s1[i] = '\0';
   }
+
+  return s1;
 }
 
 // 89, 
@@ -114,6 +123,14 @@ int main(void) {
   printf("\n");
 
   printf("No88\n");
+  char s21[] = "1234567890";
+  char s22[] = "456";
+  char *s23_p;
+  s23_p = str_remove_str(s21, s22);
+  for (i = 0; s23_p[i] != '\0'; i++) {
+    printf("%c", s23_p[i]);
+  }
+  printf("\n");
 
   printf("No89\n");
 
