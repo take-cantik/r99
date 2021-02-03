@@ -54,7 +54,13 @@ int str_to_int(char *s1) {
 
 // 93, 整数 n を文字列 s に変換する関数 char * int_to_str(int n). int_to_str(1023) で、関数内部に malloc( ) した文字列 s に "1023” を作り、s を返す。sprintf( ) の使用は禁止。 p94 も利用するとちょっと楽になる。
 
-/**/
+/*
+  まず、引数nの桁数を返す関数int digit_numを作った。
+  次に、char *int_to_strのなかで、mallocを使って、その桁より1大きい大きさのメモリを確保した。
+  そして、for文を桁数だけ回して、s[i]にnを10の桁数-1乗すると、その整数の桁の数になる。
+  アスキーコードで+48をするとchar型のその値となるので、+48をしてs[i]に入れた。
+  最後にfor文の中でnを%桁数することで、次のループでは使った桁数を削除したnになる。
+*/
 
 int digit_num(int n) {
   if (n < 10) {
@@ -75,8 +81,8 @@ char *int_to_str(int n) {
   int i;
   int divide_num;
   for (i = 0; i < digit; i++) {
-    divide_num = power(10, digit_num(n));
-    s[i] = (n / power(10, divide_num)) + 48;
+    divide_num = power(10, digit_num(n) - 1);
+    s[i] = (n / divide_num) + 48;
     n %= divide_num;
   }
   s[i] = '\0';
