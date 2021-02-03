@@ -111,9 +111,77 @@ for (i = 0; i < n; i++) {
   return np;
 }
 
-// 99, 
+// 99, 10 までの整数をその約数の数で分類すると、 1-(1), 2-(2,3,5,7),3-(4,9), 4-(6,8,10) となって グループ 2 が最もたくさんのメンバーを持ち、 そのメンバーの和は 17 になる。 同様に 1000までの整数を分類し、もっともたくさんのメンバーを持つグループを特定し、総和せよ。多分その数は 143*** くらいになる。
+
+int num_of_divisors(int n) {
+  int i;
+  int count = 0;
+
+  for (i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+int sum_of_list(int *num, int n) {
+  int i;
+  int sum = 0;
+
+  for (i = 0; i < n; i++) {
+    sum += num[i];
+  }
+
+  return sum;
+}
+
+int *largest_num_index(int *num, int n) {
+  int i, index;
+  int most_num = 0;
+  for (i = 0; i < n; i++) {
+    if (most_num < num[i]) {
+      most_num = num[i];
+      index = i;
+    }
+  }
+  
+  int *ret;
+  ret[0] = index;
+  ret[1] = most_num;
+
+  return ret;
+}
 
 /**/
+
+int sum_of_most_num_with_same_num_of_divisors(int n) {
+  printf("1\n");
+  int **n_p;
+  n_p = malloc(sizeof(int) * (n + 1));
+  int i;
+  for (i = 0; i <= n; i++) {
+    n_p[i] = (int*)malloc(sizeof(int) * (n + 1));
+  }
+  printf("2\n");
+  for (i = 0; i <= n; i++) {
+    n_p[0][i] = 0;
+  }
+
+  for (i = 1; i <= n; i++) {
+    printf("n_p[0][%i] = %i\n", i, n_p[0][i]);
+    n_p[i][n_p[0][i]] = num_of_divisors(i);
+    n_p[0][i] += 1;
+  }
+  printf("3\n");
+
+  int *num;
+  num = largest_num_index(n_p[0], n);
+
+  printf("4\n");
+  return sum_of_list(n_p[num[0]], num[1]);
+}
 
 // 100, 
 
@@ -138,6 +206,7 @@ int main(void) {
   printf("\n");
 
   printf("No99\n");
+  printf("%i\n", sum_of_most_num_with_same_num_of_divisors(1000));
 
   printf("No100\n");
 
