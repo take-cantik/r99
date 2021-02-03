@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // 96, 文字列一つを引数にとり、 それが "コロナ"だったら "no thanks."、 "ビール" だったら "乾杯！"、 "単位" だったら "よかったね。"、 それ以外だったら "なんくるないさ" を表示する関数 void greet(char* s).
 
@@ -47,40 +48,68 @@ void greet(char *s) {
 
 int is_square(int n) {
   int i;
-  for (i = 1; i * i < n; i++) {
-    ;
-  }
-  return i * i == n;
+for (i = 1; i * i < n; i++) {
+  ;
+}
+return i * i == n;
 }
 
 int is_cubic(int n) {
-  int i;
-  for (i = 1; i * i * i < n; i++) {
-    ;
-  }
-  return i * i * i == n;
+int i;
+for (i = 1; i * i * i < n; i++) {
+  ;
+}
+return i * i * i == n;
 }
 
 /*
-  for文で、iがn未満から1になる前までどんどん減らして行って、
-  iがis_squareとis_cubicの両方に正しかったら、そのiを返して、
-  最後までそこを通らなかったら答えは1なので、1になっているiを返した。
+for文で、iがn未満から1になる前までどんどん減らして行って、
+iがis_squareとis_cubicの両方に正しかったら、そのiを返して、
+最後までそこを通らなかったら答えは1なので、1になっているiを返した。
 */
 
 int square_cubic(int n) {
-  int i;
-  for (i = n - 1; i > 1; i--) {
-    if (is_square(i) && is_cubic(i)) {
-      return i;
-    }
+int i;
+for (i = n - 1; i > 1; i--) {
+  if (is_square(i) && is_cubic(i)) {
+    return i;
   }
-  
-  return i;
 }
 
-// 98, 
+return i;
+}
 
-/**/
+// 98, int * shuffle(int n) を定義せよ。戻り値は 0~n-1 の n 個の正整数が重複なく順番バラバラに入った配列。完成するとビンゴゲームに使えるぞ。関数名を bingo( ) にしようか。
+
+int my_rand(int n) {
+return random() % n;
+}
+
+/*
+  nの大きさのint型の大きさのメモリを確保して、そこに0~n未満までを順に初期値として代入した。
+  次に、for文のなかでmy_randを使って、i番目とランダムの番号の要素を入れ替えることで、
+  重複しないランダムの数を作ることができる。
+*/
+
+int *shuffle(int n) {
+int *np = NULL;
+np = (int*)malloc(sizeof(int) * n);
+
+int i;
+for (i = 0; i < n; i++) {
+  np[i] = i;
+}
+
+int ran_num, tmp;
+for (i = 0; i < n; i++) {
+    ran_num = my_rand(n);
+    tmp = np[i];
+    np[i] = np[ran_num];
+    np[ran_num] = tmp;
+  }
+
+  return np;
+}
 
 // 99, 
 
@@ -101,6 +130,12 @@ int main(void) {
   printf("%i\n", square_cubic(1000000));
 
   printf("No98\n");
+  int *n01 = shuffle(100);
+  int i;
+  for (i = 0; i < 100; i++) {
+    printf("%i, ", n01[i]);
+  }
+  printf("\n");
 
   printf("No99\n");
 
