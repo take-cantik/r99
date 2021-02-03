@@ -123,9 +123,28 @@ char *str_reverse(char *s) {
   return sp;
 }
 
-// 95, 
+// 95, 文字列 *s1 が日本語文字列の場合、s1 を逆順にした文字列を返す関数 char *jstr_reverse(char* s1)). printf("%s\n", jstr_reverse("おはようございます。")) がプリントするのは "。すまいざごうよはお\n"
 
-/**/
+/*
+  日本語は半角の3つ分であるため、まず、s1の大きさのメモリを確保し、sp1に代入した。
+  次に、3つを1セットと考え、順に代入して行った。
+*/
+
+char *jstr_reverse(char *s1) {
+  int s_len = str_len(s1);
+  char *sp1 = NULL;
+  sp1 = (char*)malloc(sizeof(char) * (s_len + 1));
+
+  int i;
+  for (i = 0; s1[i] != '\0'; i += 3) {
+    sp1[i] = s1[s_len - i - 3];
+    sp1[i + 1] = s1[s_len - i - 2];
+    sp1[i + 2] = s1[s_len - i - 1];
+  }
+  sp1[i] = '\0';
+
+  return sp1;
+}
 
 int main(void) {
   printf("No91\n");
@@ -156,6 +175,8 @@ int main(void) {
   printf("%s\n", str_reverse(s31));
 
   printf("No95\n");
+  char s41[] = "";
+  printf("%s\n", jstr_reverse("おはようございます"));
   
   return 0;
 }
