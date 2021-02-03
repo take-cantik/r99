@@ -90,9 +90,38 @@ char *int_to_str(int n) {
   return s;
 }
 
-// 94, 
+// 94, 文字列 *s を逆にした文字列を返す関数 char* str_reverse(char* s). printf("%s\n", str_reverse("abcdef")) がプリントするのは "fedcba\n"
 
-/**/
+void str_copy(char *s1, char *s2) {
+  int i;
+  for (i = 0; s1[i] != '\0'; i++) {
+    s2[i] = s1[i];
+  }
+  s2[i] = '\0';
+}
+
+/*
+  sの大きさ分のメモリを確保して、作ったものにsをコピーした。
+  次に、forで長さの半分だけ回して、sp[i]をsp[s_len - 1 -i]を入れ替えた。
+*/
+
+char *str_reverse(char *s) {
+  int s_len = str_len(s);
+  char *sp = NULL;
+  sp = (char*)malloc(sizeof(char) * s_len);
+
+  str_copy(s, sp);
+
+  int i;
+  char tmp;
+  for (i = 0; i < s_len / 2; i++) {
+    tmp = sp[i];
+    sp[i] = sp[s_len - 1 - i];
+    sp[s_len - 1 - i] = tmp;
+  }
+
+  return sp;
+}
 
 // 95, 
 
@@ -123,6 +152,8 @@ int main(void) {
   printf("\n");
 
   printf("No94\n");
+  char s31[] = "12345";
+  printf("%s\n", str_reverse(s31));
 
   printf("No95\n");
   
