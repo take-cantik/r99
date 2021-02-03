@@ -43,9 +43,40 @@ void greet(char *s) {
   }
 }
 
-// 97, 
+// 97, 1000000 未満の整数で、平方数かつ立方数でもある最大の数を探す関数。 int square_cubic(int n). square_cubic(1000000) の戻り値はきっと、531***.
 
-/**/
+int is_square(int n) {
+  int i;
+  for (i = 1; i * i < n; i++) {
+    ;
+  }
+  return i * i == n;
+}
+
+int is_cubic(int n) {
+  int i;
+  for (i = 1; i * i * i < n; i++) {
+    ;
+  }
+  return i * i * i == n;
+}
+
+/*
+  for文で、iがn未満から1になる前までどんどん減らして行って、
+  iがis_squareとis_cubicの両方に正しかったら、そのiを返して、
+  最後までそこを通らなかったら答えは1なので、1になっているiを返した。
+*/
+
+int square_cubic(int n) {
+  int i;
+  for (i = n - 1; i > 1; i--) {
+    if (is_square(i) && is_cubic(i)) {
+      return i;
+    }
+  }
+  
+  return i;
+}
 
 // 98, 
 
@@ -67,6 +98,7 @@ int main(void) {
   greet("あひあひ");
 
   printf("No97\n");
+  printf("%i\n", square_cubic(1000000));
 
   printf("No98\n");
 
