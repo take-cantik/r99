@@ -113,6 +113,12 @@ for (i = 0; i < n; i++) {
 
 // 99, 10 までの整数をその約数の数で分類すると、 1-(1), 2-(2,3,5,7),3-(4,9), 4-(6,8,10) となって グループ 2 が最もたくさんのメンバーを持ち、 そのメンバーの和は 17 になる。 同様に 1000までの整数を分類し、もっともたくさんのメンバーを持つグループを特定し、総和せよ。多分その数は 143*** くらいになる。
 
+/*
+  n * 2の配列を作る。[n][0]に総和、[1]に個数を書く
+  [1]の数が一番大きいものの[0]を返す。  
+*/
+
+// 約数の個数を返す関数
 int num_of_divisors(int n) {
   int i;
   int count = 0;
@@ -126,61 +132,51 @@ int num_of_divisors(int n) {
   return count;
 }
 
-int sum_of_list(int *num, int n) {
-  int i;
-  int sum = 0;
-
-  for (i = 0; i < n; i++) {
-    sum += num[i];
-  }
-
-  return sum;
-}
-
-int *largest_num_index(int *num, int n) {
+// 一番数が多いメンバのindexを返す関数
+int max_index(int **npp, int n) {
   int i, index;
-  int most_num = 0;
+  int max_num = 0;
+
   for (i = 0; i < n; i++) {
-    if (most_num < num[i]) {
-      most_num = num[i];
+    if (npp[i][1] > max_num) {
+      max_num = npp[i][1];
       index = i;
     }
   }
-  
-  int *ret;
-  ret[0] = index;
-  ret[1] = most_num;
 
-  return ret;
+  return index;
 }
 
-/**/
-
 int sum_of_most_num_with_same_num_of_divisors(int n) {
-  printf("1\n");
-  int **n_p;
-  n_p = malloc(sizeof(int) * (n + 1));
+  // n * 2の配列を作る。[n][0]に総和、[1]に個数を書く
+  int **num_p = malloc(sizeof(int) * 2 * n);
   int i;
-  for (i = 0; i <= n; i++) {
-    n_p[i] = (int*)malloc(sizeof(int) * (n + 1));
+  for (i = 0; i < n; i++) {
+    num_p[i] = (int*)malloc(sizeof(int) * 2);
+  }
+  printf("1\n");
+
+  // 初期値に全て0を入れていく
+  int j;
+  for (i = 0; i < n; i++) {
+    for (j = 0; j < 2; j++) {
+      num_p[i][j] = 0;
+      printf("%i\n", i);
+    }
   }
   printf("2\n");
-  for (i = 0; i <= n; i++) {
-    n_p[0][i] = 0;
-  }
 
+  // 1 ~ nまで、約数の個数を出して、配列は0 ~ n-1なので数の-1の[0]に総和、[1]に個数を入れていく。
+  int n_div;
   for (i = 1; i <= n; i++) {
-    printf("n_p[0][%i] = %i\n", i, n_p[0][i]);
-    n_p[i][n_p[0][i]] = num_of_divisors(i);
-    n_p[0][i] += 1;
+    n_div = num_of_divisors(i);
+    num_p[n_div - 1][0] += i;
+    num_p[n_div - 1][1]++;
   }
   printf("3\n");
 
-  int *num;
-  num = largest_num_index(n_p[0], n);
-
-  printf("4\n");
-  return sum_of_list(n_p[num[0]], num[1]);
+  // num_p[x][1]が一番大きいxのnum_p[x][0]を返した。
+  return num_p[max_index(num_p, n)][0];
 }
 
 // 100, 
